@@ -1,0 +1,13 @@
+.border-divider {
+    border-left: 10px solid hwb(0 1% 90%); /* Adjust border properties as needed */
+    height: 100%; /* Ensure the border spans the full height of the container */
+}
+#info{
+    margin-top: 20px;
+    height: 100%;
+    border: 3px solid black;
+
+    text-transform: capitalize;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    box-shadow: 2px black;
+}

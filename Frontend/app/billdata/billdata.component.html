@@ -1,0 +1,59 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6">
+            <!-- Left Section for Table -->
+            <h2> Electric Bills</h2>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>BillId</th>
+                        <th>Unit Cunsumed in KW</th>
+                        <th>Bill Due Date</th>
+                        <th>Bill Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let bill of homepageviewdata">
+                        <td>{{bill.billId}}</td>
+                        <td>{{bill.unitConsumed}}</td>
+                        <td>{{bill.billDueDate}}</td>
+                        <td>{{bill.billStatus}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div style="display: flex; justify-content: space-between;">
+                <button type="button" (click)="toDetails()" class="btn btn-dark" style="margin-left: 20px;"> Bill details</button>
+                <button type="button" class="btn btn-dark" style="margin-right: 20px;" (click)="transactionDetails()">Transactions</button>
+            </div>
+           
+        </div>
+        <div class="col-md-6" id="info">
+            <!-- Right Section for Information -->
+            <h2 style="text-align: center;">Information Section</h2>
+            <p>Bharat Bijlee (BSE: 503960, NSE: BBL) is a pioneer in electrical engineering in India, and one of the
+                most trusted names in the industry today. Established in 1946, the company has two primary business
+                segments: Power Systems that comprise Transformers and Projects divisions, and Industrial Systems
+                segment comprising Electric Motors, Drives & Industrial Automation and Elevator Systems divisions.
+
+                The company caters to a spectrum of industries and the builders of the nation’s infrastructure: power,
+                refineries, steel, cement, railways, machinery, construction and textiles. It also undertakes turnkey
+                projects (switchyards) and is well positioned to provide complete ‘concept to commissioning’ services.
+
+                Headquartered in Mumbai, it has extensive sales and service network across India and also serves
+                international markets.
+
+                The company’s manufacturing facilities are located in Airoli, Navi Mumbai on a 1,70,321 square meters
+                campus, with a working area of approximately 50,000 square meters. It has state-of-the-art plants for
+                its Power Transformers and Electric Motors that have been certified for ISO: 9001:2015, ISO: 14001:2015
+                & ISO 45001:2018 standards.
+
+                The Forbes Asia Best under a Billion Company award received in 2007 is a testimony to a history of
+                superior performance, innovation and customer centricity.
+
+                With a lineage of over seven decades, Bharat Bijlee represents the strength and purpose of the Indian
+                industry and its growing power internationally. It continues to be focused on growth; through expansion
+                of its manufacturing range and capacities, related diversifications and foray into new markets through
+                strategic partnerships..</p>
+        </div>
+    </div>
+</div>

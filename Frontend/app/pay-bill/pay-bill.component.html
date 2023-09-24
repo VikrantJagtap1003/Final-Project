@@ -1,0 +1,108 @@
+<app-header></app-header>
+<div class="container">
+    <h1 class="mt-5" style="text-decoration: underline; color: cornflowerblue;">Bill Information</h1>
+    <form>
+        <div class="form-group">
+            <label for="customerName">Customer Name:</label>
+            &nbsp;<span>{{billtopay.customerName}}</span>
+        </div>
+
+        <div class="form-group">
+            <label for="billID">Bill ID:</label>
+            &nbsp;<span>{{billtopay.billId}}</span>
+        </div>
+
+        <div class="form-group">
+            <label for="unitConsumed">Unit Consumed:</label>
+            &nbsp;<span>{{billtopay.unitConsumed}} KW</span>
+        </div>
+
+        <div class="form-group">
+            <label for="dueDate">Due Date:</label>
+            &nbsp;<span>{{billtopay.billDueDate|date:'mediumDate'}}</span>
+        </div>
+
+        <div class="form-group">
+            <label for="amount">Amount to Pay:</label>
+            &nbsp;<span>{{invoiceinfo.beforeDueDateAmout | currency : 'INR'}}</span>
+        </div>
+
+        <form #paymentForm="ngForm">
+            <div class="form-group">
+                <label for="paymentMethod">Payment Method:</label>
+                <select class="form-control" id="paymentMethod" name="paymentMethod"
+                    [(ngModel)]="selectedPaymentMethod">
+                    <option value="creditCard">Credit Card</option>
+                    <option value="debitCard">Debit Card</option>
+                    <option value="bankTransfer">Bank Transfer</option>
+                </select>
+            </div>
+            <div id="creditCard" [hidden]="paymentForm.controls['paymentMethod'].value !== 'creditCard'">
+                <div class="container">
+                    <h1 class="mt-5">Credit Card Payment</h1>
+                    <form>
+                        <div class="form-group">
+                            <label for="cardNumber">Card Number:</label>
+                            <input type="text" class="form-control" id="cardNumber" name="cardNumber" placeholder="1234 5678 9012 3456">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="cardHolder">Cardholder's Name:</label>
+                            <input type="text" class="form-control" id="cardHolder" name="cardHolder" placeholder="John Doe">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="expiryDate">Expiry Date:</label>
+                            <input type="text" class="form-control" id="expiryDate" name="expiryDate"
+                                placeholder="MM/YYYY">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="cvv">CVV:</label>
+                            <input type="text" class="form-control" id="cvv" name="cvv" placeholder="123">
+                        </div>
+                        <button type="button" class="btn btn-primary" (click)="pay()">Submit Payment</button>
+                        <button type="button" class="btn btn-danger" style="margin-left: 10px;" (click)="return()">Cancel</button>
+                    </form>
+                </div>
+            </div>
+            <div id="debitCard" [hidden]="paymentForm.controls['paymentMethod'].value !== 'debitCard'">
+                <div class="container">
+                    <h1 class="mt-5">Debit Card Payment</h1>
+                    <form>
+                        <div class="form-group">
+                            <label for="cardNumber">Card Number:</label>
+                            <input type="text" class="form-control" id="cardNumber" name="cardNumber" placeholder="1234 5678 9012 3456">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="cardHolder">Cardholder's Name:</label>
+                            <input type="text" class="form-control" id="cardHolder" name="cardHolder" placeholder="John Doe">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="expiryDate">Expiry Date:</label>
+                            <input type="text" class="form-control" id="expiryDate" name="expiryDate"
+                                placeholder="MM/YYYY">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="cvv">CVV:</label>
+                            <input type="text" class="form-control" id="cvv" name="cvv" placeholder="123">
+                        </div>
+                        <button type="button" class="btn btn-primary" (click)="pay()">Submit Payment</button>
+                        <button type="button" class="btn btn-danger" style="margin-left: 10px;" (click)="return()">Cancel</button>
+                    </form>
+                </div>
+            </div>
+            <div>
+                <div id="bankTransfer" [hidden]="paymentForm.controls['paymentMethod'].value !== 'bankTransfer'">
+                    <p>This option is not currenty available...</p>
+                </div>
+            </div>
+
+        </form>
+
+
+    </form>
+</div>
